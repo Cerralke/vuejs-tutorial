@@ -5,10 +5,14 @@
 	</head>
 	<body>
 		<div id="app">
-		<input v-model="appTitle">
-		<input v-model="myNumber">
 			<h1>{{ appTitle }}</h1>
 			<p>{{ 2 * myNumber }}</p>
+			<a :href="address">{{ goAway }}</a>
+			<a v-bind="secondLink">{{ text }}</a>
+			<h2>{{ pictureCheck }}</h2>
+			<label for="input-for-url">Enter picture URL</label>
+			<input id="input-for-url" v-model="pictureUrl">
+			<p><img :src="pictureUrl"></p>
 		</div>
 
 		<script type="text/javascript">
@@ -16,7 +20,16 @@
 				data () {
 					return {
 						appTitle: 'My App',
-						myNumber: 0
+						myNumber: 0,
+						address: 'http://zyciepopolibudzie.blogspot.com/', // v-bind:href === :href
+						goAway: 'Ić stond!',
+						secondLink: {
+							title: 'link link link',
+							href: 'http://zyciepopolibudzie.blogspot.com/'
+						},
+						text: 'Tu też możesz.',
+						pictureCheck: 'Check your pics by URL',
+						pictureUrl: 'https://www.sciencemag.org/sites/default/files/styles/inline__450w__no_aspect/public/dogs_1280p_0.jpg'
 					}
 				}
 			}).$mount('#app')
